@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APK Analyzer</title>
+    <h3>CMP SIX EIGHT TWO – ARTIFICIAL INTELLIGENCE - <br> Final Project <br>Android Malware Detection via Machine Learning <br>R.C. Oztas </h3>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Upload an APK file</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form id="uploadForm" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput">
+        <button type="submit">Upload</button>
+    </form>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                console.log("No file selected.");
+                alert("Please select a file to upload.");
+                event.preventDefault(); // Prevent the form from submitting
+            } else {
+                console.log("File selected:", fileInput.files[0].name);
+            }
+        });
+
+        // Log the form submission and response
+        document.getElementById('uploadForm').onsubmit = function() {
+            console.log("Form submitted.");
+            return true;
+        };
+    </script>
+</body>
+</html>

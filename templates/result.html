@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APK Analysis Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .result-number {
+            font-family: Arial, sans-serif;
+            color: #00ff00; /* Use the same color as Matrix font for consistency */
+        }
+    </style>
+</head>
+<body>
+    <h1>Analysis Result</h1>
+    <p>ANN Prediction: <span class="result-number">{{ ann_pred }}</span></p>
+    <p>ANN Result: {{ ann_res }}</p>
+    <p>CNN Prediction: <span class="result-number">{{ cnn_pred }}</span></p>
+    <p>CNN Result: {{ cnn_res }}</p>
+    <h2>APK Image:</h2>
+    <img src="{{ url_for('static', filename=image_path) }}" alt="APK Image">
+</body>
+</html>
